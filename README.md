@@ -1,7 +1,7 @@
 # TIC-TAC-TOE
 ## Language used ANSI C
 ### A simple Tic tac toe game which I made in C language for Windows in Code::Blocks IDE
-![GAME SCREEN](https://cwithsharad.github.io/tictac2/tictac2.jpg){:class="img-responsive"}
+![GAME SCREEN](https://cwithsharad.github.io/tictac2/tictac2.JPG)
 
 ```c
 #include<stdio.h>
