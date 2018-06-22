@@ -4,9 +4,7 @@
 
 /************************************ GLOBAL VARIABLES *************************************/
 
-int game[9]={'1','2','3','4','5','6','7','8','9'};
-int no;
-int player=1;
+int game[9]={'1','2','3','4','5','6','7','8','9'},no,player=1,flag=0;
 
 /********************************* FUNCTION DECLARATIONS ***********************************/
 
@@ -24,9 +22,14 @@ void main()
     board();
     for(x=0;x<9;x++)
     {
+        re:
+        flag=0;
         printf("\n\n\n\t\tENTER THE SERIAL NO. OF BLOCK : ");
         scanf("%d",&no);
         check();
+        if(flag==1)
+        goto re;
+        else
         board();
     }
 }
@@ -96,13 +99,8 @@ void winner()
         system("cls");
         system("color 0A");
         printf("\n\n\n\n\t\t\t\tSECOND PLAYER WINS THE GAME !!!!!\n\n\n\n");
-        printf("\n\n\t\t\t\t1 FOR REPLAY 2 TO EXIT\n");
-        printf("\n\n\t\t\t\tENTER THE CHOICE : ");
         fflush(stdin);
-        choice=getchar();
-        if(choice=='1')
-            main();
-        else
+        getchar();
         credits();
     }
     else if((game[0]=='X'&&game[1]=='X'&&game[2]=='X')||(game[0]=='X'&&game[3]=='X'&&game[6]=='X')||(game[0]=='X'&&game[4]=='X'&&game[8]=='X')||(game[3]=='X'&&game[4]=='X'&&game[5]=='X')||(game[6]=='X'&&game[7]=='X'&&game[8]=='X')||(game[2]=='X'&&game[4]=='X'&&game[6]=='X')||(game[1]=='X'&&game[4]=='X'&&game[7]=='X')||(game[2]=='X'&&game[5]=='X'&&game[8]=='X'))
@@ -111,13 +109,8 @@ void winner()
         system("cls");
         system("color 0A");
         printf("\n\n\n\n\t\t\t\tFIRST PLAYER WINS THE GAME !!!!!\n\n\n\n");
-        printf("\n\n\t\t\t\t1 FOR REPLAY 2 TO EXIT\n");
-        printf("\n\n\t\t\t\tENTER THE CHOICE : ");
         fflush(stdin);
-        choice=getchar();
-        if(choice=='1')
-            main();
-        else
+        getchar();
         credits();
     }
 }
@@ -130,12 +123,8 @@ void check()
         {
                 printf("\n\n\t\t\t\tDO NOT CHEAT !!!!!");
                 printf("\n\n\t\tALREADY FILLED POSITION ");
-                printf("\n\n\n\t\tENTER THE SERIAL NO. OF BLOCK : ");
-                scanf("%d",&no);
-                board();
+                flag=1;
         }
-        else
-                system("cls");
 }
 
 /********************************* CREDITS DISPLAY FUNCTION ********************************/
